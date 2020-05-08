@@ -11,9 +11,10 @@ public class Flight {
     public Flight(String planes, GregorianCalendar date,int close) {
         this.planes = planes;
         this.date = date;
-        this.close=close;
+        this.close = close;
     }
 
+    // void showInfo или printInfo
     void info() {
         System.out.println("имя " + planes + "\nдата отправления " + date.getTime()+"\nмест занято " + close);
     }
