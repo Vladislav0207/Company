@@ -8,8 +8,11 @@ public class Person {
         this.name = name;
         this.age = age;
     }
-
+    
+    //Show/PrintInfo
     void info() {
         System.out.println("имя " + name + "\nвозраст " + age);
     }
+    
+    //Для вывода объекта как строки есть встроенный метод toString(), переопределяешь его вместо info()
 }
