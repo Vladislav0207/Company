@@ -6,19 +6,23 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.ArrayList;
 
+//E800 - вынести в отдельный метод
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        ArrayList<Person> people = new ArrayList<>(2);
+       //E800 
+        ArrayList<Person> people = new ArrayList<>(2); // List<Person>, всегда надо юзать интерфейс а не его реализацию
         people.add(new Person("лох", 5));
         people.add(new Person("пидр", 9));
-        List<Plane> plane = new ArrayList<>(2);
+      //E800
+        List<Plane> plane = new ArrayList<>(2); //ну тут же норм, только не plane, a planes
         plane.add(new Plane("fly", 300, 300));
         plane.add(new Plane("fuck", 299, 299));
+        //E800
         Flight[] flight = new Flight[4];
-        GregorianCalendar calendar1 = new GregorianCalendar(2020, Calendar.JANUARY, 25);
+        GregorianCalendar calendar1 = new GregorianCalendar(2020, Calendar.JANUARY, 25); //Что за нейминги calendar1-4, мне не понятно)
         flight[0] = new Flight(plane.get(0).mark, calendar1, 100);
         GregorianCalendar calendar2 = new GregorianCalendar(2020, Calendar.FEBRUARY, 24);
         flight[1] = new Flight(plane.get(0).mark, calendar2, 100);
@@ -26,13 +30,15 @@ public class Main {
         flight[2] = new Flight(plane.get(0).mark, calendar3, 100);
         GregorianCalendar calendar4 = new GregorianCalendar(2020, Calendar.AUGUST, 22);
         flight[3] = new Flight(plane.get(0).mark, calendar4, 100);
+        
         System.out.println("И так, здравствуйте уважаемый пидарасс\n Вас приветсвует ваша ебаная в анал авиакомпания <попутного витру тибе в сpаку>");
         while (true) {
             System.out.println("1 - массив сотрудников\n 2 - коллекция самолетов\n 3 - список рейсов\n 4 - меню добавления\n 5 - выход");
-            int n = in.nextInt();
-            switch (n) {
+            int n = in.nextInt(); //n - Плохой нейминг
+           //E800 - к каждому кейсу
+            switch (n) { 
                 case 1://сотрудники
-                    for (int i = 0; i < people.size(); i++) {
+                    for (int i = 0; i < people.size(); i++) { 
                         people.get(i).info();
                     }
                     break;
@@ -42,7 +48,7 @@ public class Main {
                     }
                     break;
                 case 3://рейсы
-                   GregorianCalendar t= new GregorianCalendar();
+                   GregorianCalendar t= new GregorianCalendar(); //t - ?
                    for (int y=0;y<3;y++){
                     for (int l = 0; l < 3; l++) {
                         if (flight[l].date.before(flight[l + 1].date)) {
@@ -59,9 +65,9 @@ public class Main {
                     break;
                 case 4://добавить
                     System.out.println("1 - добавить сотрудника\n 2 - добавить самолет");
-                    int m = in.nextInt();
-                    switch (m) {
-                        case 1://доб сотрудника
+                    int m = in.nextInt(); //m - ?
+                    switch (m) { 
+                        case 1://доб сотрудника 
                             System.out.println("сколько сотрудников хочешь добавить, хуйло?");
                             int k = in.nextInt();
                             for (int i = 0; i < k; i++) {
